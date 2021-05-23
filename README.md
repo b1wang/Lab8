@@ -16,10 +16,18 @@ Yes, since you can design a test that feeds two lengths, one under the limit and
 No browser UI will open, and the puppeteer will test all of the interactions through automation without a browser.
 
 5. What would your beforeAll callback look like if you wanted to start from the settings page before every test case?
+
 beforeAll(async () => {
+
     await page.goto('http://127.0.0.1:5500');
+    
     await page.waitForTimeout(500);
+    
     // Test Q5 for README
+    
     const settingsButton = await page.$('img[alt="settings"]');
+    
     await settingsButton.evaluate( settingsButton => settingsButton.click() );
+    
 });
+
