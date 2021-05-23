@@ -240,9 +240,10 @@ describe('Basic user flow for SPA ', () => {
       });
   });
   
-  // create your own test 20
+  // create your owan test 20
   // Test functionality of forward button. Go into Entry 1, go back to home, then click forward button.
   it('Test20: Test functionality of forward button. Go into Entry 1, go back to home, then click forward button.', async() => {
+    jest.setTimeout(10000);
     await page.goto('http://127.0.0.1:5500');
     const entries = await page.$$('journal-entry');
     const entry1 = entries[0];
@@ -257,4 +258,4 @@ describe('Basic user flow for SPA ', () => {
     let containsEntry = page.url().includes("/#entry1");
     expect(containsEntry).toBe(true);
   });
-});
+}, 10000);
